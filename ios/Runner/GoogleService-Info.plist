@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyArK0gv_570GCJ5uX7_jBjPM5mEwgstW5A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>11131251179</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.stockNGrillCustomer</string>
+	<key>PROJECT_ID</key>
+	<string>stock-n-grill</string>
+	<key>STORAGE_BUCKET</key>
+	<string>stock-n-grill.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:11131251179:ios:d49911f4ae6bab27fdd1ae</string>
+</dict>
+</plist>

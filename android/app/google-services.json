@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11131251179",
+    "project_id": "stock-n-grill",
+    "storage_bucket": "stock-n-grill.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11131251179:android:464e18492a5ba8a3fdd1ae",
+        "android_client_info": {
+          "package_name": "com.example.stock_n_grill_customer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_aPoeiwv8KTjVcwIuQl7-71FQ03em5Pk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
