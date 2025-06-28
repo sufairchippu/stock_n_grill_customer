@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stock_n_grill_customer/controller/splash_sc_controller.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
-import 'package:stock_n_grill_customer/services/utilities/image_constant.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/image_constant.dart';
 import 'package:stock_n_grill_customer/view/Login%20Screen/login_screen.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/bottom_navbar_sc_view.dart';
 
@@ -20,13 +20,12 @@ class SplashScView extends StatefulWidget {
 class _SplashScViewState extends State<SplashScView> {
   @override
   void initState() {
-    
     Timer(Duration(seconds: 0), () {
       Future.microtask(() => context.read<SplashScController>().changeSize());
     });
     Timer(Duration(seconds: 3), () async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final bool? isloggedin = prefs.getBool("isLogged");
+      final bool isloggedin = prefs.getBool("isLogged") ?? false;
       if (isloggedin == true) {
         Navigator.pushReplacement(
           context,
@@ -42,7 +41,6 @@ class _SplashScViewState extends State<SplashScView> {
             builder: (context) => LoginScreen(),
             //RegisterScreenView()
           ),
-         
         );
       }
     });

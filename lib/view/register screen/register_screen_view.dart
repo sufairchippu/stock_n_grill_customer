@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stock_n_grill_customer/services/global%20widget/input_field_widget.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
-import 'package:stock_n_grill_customer/services/utilities/image_constant.dart';
+import 'package:stock_n_grill_customer/shared/input_field_widget.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/image_constant.dart';
 import 'package:stock_n_grill_customer/view/Login%20Screen/login_screen.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/bottom_navbar_sc_view.dart';
 
@@ -161,8 +161,7 @@ class _RegisterScreenViewState extends State<RegisterScreenView> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                emailcont.text +
-                                    " is Registered Successfully ✅",
+                                "${emailcont.text} is Registered Successfully ✅",
                               ),
                             ),
                           );

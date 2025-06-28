@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:stock_n_grill_customer/controller/bottom_navbarsc_controller.dart';
-import 'package:stock_n_grill_customer/services/global%20widget/appbar_logo_widget.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
-import 'package:stock_n_grill_customer/services/utilities/image_constant.dart';
+import 'package:stock_n_grill_customer/shared/appbar_logo_widget.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/image_constant.dart';
 import 'package:stock_n_grill_customer/view/Login%20Screen/login_screen.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/home/home_screen.dart';
 

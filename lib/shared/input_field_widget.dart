@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
 
 class InputFieldWidget extends StatelessWidget {
   const InputFieldWidget({

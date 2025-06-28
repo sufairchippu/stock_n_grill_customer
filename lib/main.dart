@@ -5,7 +5,7 @@ import 'package:stock_n_grill_customer/controller/bottom_navbarsc_controller.dar
 import 'package:stock_n_grill_customer/controller/home_screen_controller.dart';
 import 'package:stock_n_grill_customer/controller/splash_sc_controller.dart';
 
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
 import 'package:stock_n_grill_customer/view/splash/splash_sc_view.dart';
 
 Future<void> main() async {

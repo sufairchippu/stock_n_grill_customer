@@ -2,8 +2,8 @@ import 'package:fan_carousel_image_slider/fan_carousel_image_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_n_grill_customer/controller/home_screen_controller.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
-import 'package:stock_n_grill_customer/services/utilities/image_constant.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/image_constant.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class _CategorySelectorMethode2 extends StatelessWidget {
   final List<String> categories;
 
-  const _CategorySelectorMethode2({required this.categories, super.key});
+  const _CategorySelectorMethode2({required this.categories});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stock_n_grill_customer/services/global%20widget/input_field_widget.dart';
-import 'package:stock_n_grill_customer/services/utilities/color_constant.dart';
-import 'package:stock_n_grill_customer/services/utilities/image_constant.dart';
+import 'package:stock_n_grill_customer/shared/input_field_widget.dart';
+import 'package:stock_n_grill_customer/core/const/color_constant.dart';
+import 'package:stock_n_grill_customer/core/const/image_constant.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/bottom_navbar_sc_view.dart';
 import 'package:stock_n_grill_customer/view/register%20screen/register_screen_view.dart';
 
@@ -19,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController passwControl = TextEditingController();
   final formkeyy = GlobalKey<FormState>();
   SharedPreferences? sharedPreferences;
+  @override
   void initState() {
     super.initState();
     _initPreferences();
@@ -161,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                "User is Valid ✅" + emailcontroler.text,
+                                "User is Valid ✅${emailcontroler.text}",
                               ),
                             ),
                           );
