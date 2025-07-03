@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stock_n_grill_customer/shared/input_field_widget.dart';
 import 'package:stock_n_grill_customer/core/const/color_constant.dart';
 import 'package:stock_n_grill_customer/core/const/image_constant.dart';
-import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/bottom_navbar_sc_view.dart';
 
 class CustomerdetailScView extends StatefulWidget {
   const CustomerdetailScView({super.key});
@@ -36,7 +36,7 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,32 +47,34 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
                   ),
                 ],
               ),
-              SizedBox(height: 29),
+              const SizedBox(height: 29),
               Text(
                 "Register or login in stoke!!",
                 style: GoogleFonts.aclonica(
                   fontSize: 24,
-                  color: ColorConstant.SECONDARYCOLOR3,
+                  color: AppColor.kSECONDARYCOLOR3,
                 ),
               ),
 
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               Text(
                 "Enter the numbet to be connected",
                 style: GoogleFonts.aclonica(
                   fontSize: 12,
-                  color: ColorConstant.SECONDARYCOLOR3,
+                  color: AppColor.kSECONDARYCOLOR3,
                 ),
               ),
-              SizedBox(height: 30),
-              InputFieldWidget(obscureText:false ,
+              const SizedBox(height: 30),
+              InputFieldWidget(
+                obscureText: false,
 
                 inputController: namecontr,
                 hintText: "Enter Your name",
                 keyboardType: TextInputType.text,
-                
-              ),SizedBox(height: 20),
-              InputFieldWidget(obscureText:false ,
+              ),
+              const SizedBox(height: 20),
+              InputFieldWidget(
+                obscureText: false,
                 inputController: phonnum,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -89,21 +91,21 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
                 keyboardType: TextInputType.phone,
                 maxLength: 10,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
                     "OTP will send to this number ",
                     style: GoogleFonts.aclonica(
-                      color: ColorConstant.SECONDARYCOLOR3,
+                      color: AppColor.kSECONDARYCOLOR3,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -112,18 +114,14 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      backgroundColor: ColorConstant.SECONDARYCOLOR3,
-                      foregroundColor: ColorConstant.PRIMARYCOLOR,
+                      backgroundColor: AppColor.kSECONDARYCOLOR3,
+                      foregroundColor: AppColor.kPRIMARYCOLOR,
                     ),
                     onPressed: () {
                       if (formkey.currentState!.validate()) {
                         log("Phone number is ${phonnum.text}");
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => BottomNavbarScView(),
-                          ),
-                        );
+                        context.go('/navbar');
+
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
@@ -133,11 +131,11 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
                         );
                       }
                     },
-                    child: Text("Get OTP"),
+                    child: const Text("Get OTP"),
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -145,23 +143,18 @@ class _CustomerdetailScViewState extends State<CustomerdetailScView> {
                     "Don't want login",
                     style: GoogleFonts.aclonica(
                       fontSize: 16,
-                      color: ColorConstant.SECONDARYCOLOR4,
+                      color: AppColor.kThirdColor,
                     ),
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BottomNavbarScView(),
-                        ),
-                      );
+                      context.push('/navbar');
                     },
                     child: Text(
                       " skip >>",
                       style: GoogleFonts.aclonica(
                         fontSize: 18,
-                        color: ColorConstant.SECONDARYCOLOR3,
+                        color: AppColor.kSECONDARYCOLOR3,
                       ),
                     ),
                   ),

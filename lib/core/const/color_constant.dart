@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ColorConstant {
-  static Color PRIMARYCOLOR = Colors.brown.shade900;
-  static Color SECONDARYCOLOR=Colors.white30;
-
-  static Color SECONDARYCOLOR2=Colors.white24;
-  static Color SECONDARYCOLOR4=Colors.white54;
-  static Color SECONDARYCOLOR3=Colors.white70;
-
-
+class AppColor {
+  static Color kPRIMARYCOLOR = const Color(0xffE95322);
+  static Color kTextColor = Colors.black;
+  static Color kScaffoldColor = const Color(0xffF5CB58);
+  static Color kThirdColor = Colors.white;
+  static Color kBrownColor = Colors.brown.shade900;
+  static Color kGreyColor = Colors.grey;
+  static Color kSECONDARYCOLOR3 = Colors.black;
+  static Color kRedColor = Colors.red;
 }
-

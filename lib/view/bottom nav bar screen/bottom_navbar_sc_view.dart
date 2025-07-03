@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stock_n_grill_customer/controller/bottom_navbarsc_controller.dart';
-import 'package:stock_n_grill_customer/shared/appbar_logo_widget.dart';
+import 'package:stock_n_grill_customer/controller/provider/navbar/bottom_navbarsc_controller.dart';
+import 'package:stock_n_grill_customer/core/mesurment/responsive_size.dart';
+import 'package:stock_n_grill_customer/services/storage_values/local_storage.dart';
 import 'package:stock_n_grill_customer/core/const/color_constant.dart';
 import 'package:stock_n_grill_customer/core/const/image_constant.dart';
-import 'package:stock_n_grill_customer/view/Login%20Screen/login_screen.dart';
+import 'package:stock_n_grill_customer/shared/frames/custom_painted/main_frame_app.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/home/home_screen.dart';
 
 class BottomNavbarScView extends StatefulWidget {
@@ -18,10 +19,10 @@ class BottomNavbarScView extends StatefulWidget {
 
 class _BottomNavbarScViewState extends State<BottomNavbarScView> {
   List bottomScreens = [
-    HomeScreen(),
-    Container(color: ColorConstant.PRIMARYCOLOR),
+    const HomeScreen(),
+    Container(color: AppColor.kPRIMARYCOLOR),
 
-    Container(color: ColorConstant.PRIMARYCOLOR),
+    const MainFrameApp(customPaintChild: Column()),
   ];
 
   @override
@@ -29,35 +30,32 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
     return Consumer<BottomNavbarscController>(
       builder:
           (context, state, child) => Scaffold(
-            appBar: AppBar(
-
-              
-              backgroundColor: ColorConstant.PRIMARYCOLOR,
-              title: AppbarLogoWidget(),
-              centerTitle: true,
-              // leading: IconButton(
-              //   icon: Icon(
-              //     Icons.menu,
-              //     color: ColorConstant.SECONDARYCOLOR3,
-              //   ), // Your Custom Icon
-              //   onPressed: () {
-              //     Scaffold.of(context).openDrawer(); // To Open Drawer
-              //   },
-              // ),
-            ),
-
+            // appBar: AppBar(
+            //   backgroundColor: AppColor.PRIMARYCOLOR,
+            //   title: AppbarLogoWidget(),
+            //   centerTitle: true,
+            //   // leading: IconButton(
+            //   //   icon: Icon(
+            //   //     Icons.menu,
+            //   //     color: ColorConstant.SECONDARYCOLOR3,
+            //   //   ), // Your Custom Icon
+            //   //   onPressed: () {
+            //   //     Scaffold.of(context).openDrawer(); // To Open Drawer
+            //   //   },
+            //   // ),
+            // ),
             body: bottomScreens[state.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: ColorConstant.PRIMARYCOLOR,
-              selectedItemColor: ColorConstant.SECONDARYCOLOR3,
-              unselectedItemColor: ColorConstant.SECONDARYCOLOR2,
+              backgroundColor: AppColor.kPRIMARYCOLOR,
+              selectedItemColor: AppColor.kSECONDARYCOLOR3,
+              unselectedItemColor: AppColor.kScaffoldColor,
               elevation: 10,
 
               currentIndex: state.currentIndex,
               onTap: (value) {
                 state.onScreenChange(seletedIndex: value);
               },
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home_outlined),
                   label: "home",
@@ -72,8 +70,14 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
                 ),
               ],
             ),
-            drawer: Drawer(
-              backgroundColor: ColorConstant.SECONDARYCOLOR3,
+            endDrawer: Drawer(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(70.rf(context)),
+                  bottomLeft: Radius.circular(70.rf(context)),
+                ),
+              ),
+              backgroundColor: AppColor.kSECONDARYCOLOR3,
               clipBehavior: Clip.antiAlias,
               child: SafeArea(
                 child: Padding(
@@ -90,7 +94,7 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 24),
+                      const SizedBox(height: 24),
                       CircleAvatar(
                         radius: 30,
                         child: Text(
@@ -98,50 +102,41 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
                           style: GoogleFonts.aclonica(fontSize: 30),
                         ),
                       ), //names first letter
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
                         "Name" ?? "User Not Registerd",
                         style: GoogleFonts.aclonica(fontSize: 20),
                       ),
-                      SizedBox(height: 30),
-                      _BuildDrawer_methods(
+                      const SizedBox(height: 30),
+                      _buildDrawer_methods(
                         onTapp: () {},
                         title: "About Us",
                         icon: Icons.info_outlined,
                       ),
-                      SizedBox(height: 20),
-                      _BuildDrawer_methods(onTapp: () {
-                        
-                      },
+                      const SizedBox(height: 20),
+                      _buildDrawer_methods(
+                        onTapp: () {},
                         title: "Conduct Us",
                         icon: Icons.person_pin_outlined,
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
 
-                      _BuildDrawer_methods(
+                      _buildDrawer_methods(
                         onTapp: () {},
                         title: "Settings",
                         icon: Icons.settings_rounded,
                       ),
-                      Spacer(),
-                      _BuildDrawer_methods(
+                      const Spacer(),
+                      _buildDrawer_methods(
                         onTapp: () async {
-                          final SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                          await prefs.clear(); // Clear all stored data
-                          await prefs.setBool("isLogged", false);
-
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ),
-                          );
+                          await LocalStorage.clearall(); // Clear all stored data
+                          await LocalStorage.setBool("isLogged", false);
+                          context.push('/login');
                         },
                         title: "Log Out",
                         icon: Icons.logout,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -151,7 +146,7 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
     );
   }
 
-  InkWell _BuildDrawer_methods({
+  InkWell _buildDrawer_methods({
     required String title,
     required IconData icon,
     void Function()? onTapp,

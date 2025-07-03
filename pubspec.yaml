@@ -36,10 +36,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   google_fonts: ^6.2.1
-  firebase_core: ^3.12.1
   sqflite: ^2.4.2
   shared_preferences: ^2.5.2
-  fan_carousel_image_slider: ^1.3.0
+  go_router: ^15.2.4
+  flutter_svg: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -66,7 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/image/
-    # - assets/videos/
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

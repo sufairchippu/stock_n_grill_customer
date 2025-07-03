@@ -10,6 +10,6 @@ class OnboardingScView extends StatefulWidget {
 class _OnboardingScViewState extends State<OnboardingScView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("onboarding")));
+    return const Scaffold(body: Center(child: Text("onboarding")));
   }
 }
