@@ -20,3 +20,10 @@ class AddOn {
   final double price;
   AddOn(this.name, this.price);
 }
+
+class DrawerItem {
+  final String icon;
+  final String titile;
+  final void Function()? nav;
+  DrawerItem(this.icon, this.nav, this.titile);
+}

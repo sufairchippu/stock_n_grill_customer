@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:stock_n_grill_customer/DUMMY/dummyy.dart';
+import 'package:stock_n_grill_customer/controller/provider/iteam/iteam_screen_controller.dart';
 import 'package:stock_n_grill_customer/core/const/color_constant.dart';
 import 'package:stock_n_grill_customer/core/const/svg_constants.dart';
 import 'package:stock_n_grill_customer/core/mesurment/responsive_size.dart';
@@ -14,6 +16,7 @@ class IteamScreen extends StatelessWidget {
   final IteamModel iteam;
   @override
   Widget build(BuildContext context) {
+    final cout = context.watch<IteamScreenController>().count;
     final dummydata = Dummy.ingredients_list;
     return Scaffold(
       body: Column(
@@ -45,21 +48,38 @@ class IteamScreen extends StatelessWidget {
                       context: context,
                     ),
                     const Spacer(),
-                    CircleAvatar(
-                      backgroundColor: AppColor.kPRIMARYCOLOR.withOpacity(0.26),
-                      child: Icon(Icons.remove, color: AppColor.kThirdColor),
+                    InkResponse(
+                      onTap: () {
+                        cout <= 1
+                            ? null
+                            : 
+                            context
+                                .read<IteamScreenController>()
+                                .decremntCount();
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: AppColor.kPRIMARYCOLOR.withOpacity(
+                          0.26,
+                        ),
+                        child: Icon(Icons.remove, color: AppColor.kThirdColor),
+                      ),
                     ),
                     UiUtilis.textWidget(
-                      titile: "1",
+                      titile: cout.toString(),
                       fz: 18.rf(context),
                       context: context,
                     ),
-                    CircleAvatar(
-                      backgroundColor: AppColor.kPRIMARYCOLOR,
-                      child: Icon(
-                        Icons.add,
-                        color: AppColor.kThirdColor,
-                      ), //withOpacity(0.6),
+                    InkResponse(
+                      onTap: () {
+                        context.read<IteamScreenController>().incremntCount();
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: AppColor.kPRIMARYCOLOR,
+                        child: Icon(
+                          Icons.add,
+                          color: AppColor.kThirdColor,
+                        ), //withOpacity(0.6),
+                      ),
                     ),
                   ],
                 ),

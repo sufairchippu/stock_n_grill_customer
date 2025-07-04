@@ -9,5 +9,6 @@ class SvgConstants {
   static const String desserts = 'assets/svg/Desserts.svg';
   static const String drinks = 'assets/svg/Drinks.svg';
   static const String star = 'assets/svg/Vector.svg';
-
+  static const String profile2 = 'assets/svg/profile2.svg';
+  static const String nodata = 'assets/svg/nodata.svg';
 }

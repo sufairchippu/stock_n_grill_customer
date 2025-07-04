@@ -69,10 +69,10 @@ class AppTextStyles {
           color: defaultColor,
         );
       case TextStyleType.subtitle3:
-        return TextStyle(
-          fontWeight: weight ?? FontWeight.bold,
-          fontSize: fontSize ?? 12.rf(context),
-          color: defaultColor,
+        return GoogleFonts.poppins(
+          fontWeight: weight ?? FontWeight.w600,
+          fontSize: fontSize ?? 16.rf(context),
+          color: AppColor.kThirdColor,
         );
       case TextStyleType.bodyText1:
         return GoogleFonts.aclonica(

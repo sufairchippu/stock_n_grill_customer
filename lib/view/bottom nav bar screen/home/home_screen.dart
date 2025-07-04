@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final currentIndex = context.watch<HomeScreenController>().currentIndex;
 
     return Scaffold(
-      drawer: const Drawer(),
+      // drawer: const Drawer(child: ,),
       body: Column(
         children: [
           SizedBox(height: 40.rh(context)),
