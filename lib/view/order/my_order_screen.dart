@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stock_n_grill_customer/DUMMY/dummyy.dart';
+import 'package:stock_n_grill_customer/core/const/svg_constants.dart';
 import 'package:stock_n_grill_customer/core/mesurment/responsive_size.dart';
 import 'package:stock_n_grill_customer/core/theme/font_const.dart';
 import 'package:stock_n_grill_customer/core/utilities/custom_canvas/ui_utilis.dart';
@@ -13,6 +15,8 @@ class MyOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> status = ['Active', 'Completed', 'Cancelled'];
+    final data = [];
+    Dummy.dataaaaa;
     return Scaffold(
       body: CustomBaseScreen(
         title: "My Order",
@@ -93,16 +97,39 @@ class MyOrderScreen extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       // shrinkWrap: true,
                       // physics: NeverScrollableScrollPhysics(),
-                      itemBuilder:
-                          (context, index) => OrderIteamCard(
-                            name: 'Shawrma',
-                            price: 20,
-                            quandity: 3,
-                            time: DateTime.now(),
-                            image:
-                                "https://thumbs.dreamstime.com/b/fast-food-concept-greasy-fried-restaurant-take-out-as-onion-rings-burger-hot-dogs-fried-chicken-french-fries-31114163.jpg", //   iteam.image,     image,
-                          ),
-                      itemCount: 20,
+                      itemBuilder: (context, index) {
+                        return data.isEmpty
+                            ? Center(
+                              child: Container(
+                                color: AppColor.kBrownColor,
+                                height: 20,
+                                width: 100,
+                              ),
+                              //  Column(
+                              //   children: [
+                              //     UiUtilis.getSvg(
+                              //       path: SvgConstants.nodata,
+                              //       width: 142.rw(context),
+                              //       height: 168.rh(context),
+                              //     ),
+                              //     UiUtilis.textWidget(
+                              //       titile:
+                              //           'You don\'t have any active orders at this time',
+                              //       context: context,
+                              //     ),
+                              //   ],
+                              // ),
+                            )
+                            : OrderIteamCard(
+                              name: data[index].titile,
+                              price: data[index].price,
+                              quandity: 3,
+                              time: DateTime.now(),
+                              image:
+                                  "https://thumbs.dreamstime.com/b/fast-food-concept-greasy-fried-restaurant-take-out-as-onion-rings-burger-hot-dogs-fried-chicken-french-fries-31114163.jpg", //   iteam.image,     image,
+                            );
+                      },
+                      itemCount: data.length,
                       separatorBuilder:
                           (context, index) => Divider(
                             color: AppColor.kPRIMARYCOLOR.withOpacity(.6),

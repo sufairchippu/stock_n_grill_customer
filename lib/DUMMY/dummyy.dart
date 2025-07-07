@@ -3,7 +3,7 @@ import 'package:stock_n_grill_customer/model/data/category_model.dart';
 import 'package:stock_n_grill_customer/model/data/iteam_model.dart';
 
 class Dummy {
- static List<AddOn> ingredients_list = [
+  static List<AddOn> ingredients_list = [
     AddOn('Salt', 0),
     AddOn('Sugar', 0),
     AddOn('Lemon', 1.02),

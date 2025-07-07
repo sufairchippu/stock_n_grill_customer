@@ -37,7 +37,7 @@ class IteamWidget extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(30.rf(context))),
             child: Image.network(
-              "https://thumbs.dreamstime.com/b/fast-food-concept-greasy-fried-restaurant-take-out-as-onion-rings-burger-hot-dogs-fried-chicken-french-fries-31114163.jpg", //     image,
+             'https://t3.ftcdn.net/jpg/02/48/92/96/360_F_248929619_JkVBYroM1rSrshWJemrcjriggudHMUhV.jpg', //     image,
               height: 160.rh(context),
               width: double.infinity,
               fit: BoxFit.cover,

@@ -4,6 +4,7 @@ class SvgConstants {
   static const String profile = 'assets/svg/profile.svg';
   static const String filter = 'assets/svg/filter.svg';
   static const String meals = 'assets/svg/Meals.svg';
+  static const String all = 'assets/svg/all.svg'; //.........>>>>>>>>>>>>>
   static const String snack = 'assets/svg/Snacks.svg';
   static const String vegan = 'assets/svg/Vegan.svg';
   static const String desserts = 'assets/svg/Desserts.svg';

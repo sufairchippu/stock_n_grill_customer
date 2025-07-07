@@ -19,6 +19,7 @@ enum TextStyleType {
   label,
   errorText,
   subtitleHeading,
+  dollar,
 }
 
 class AppTextStyles {
@@ -99,16 +100,16 @@ class AppTextStyles {
           color: defaultColor,
         );
       case TextStyleType.button:
-        return TextStyle(
+        return GoogleFonts.aclonica(
           fontWeight: weight ?? FontWeight.w600,
-          fontSize: fontSize ?? 14.rf(context),
+          fontSize: fontSize ?? 12.rf(context),
           color: defaultColor,
         );
       case TextStyleType.label:
-        return TextStyle(
+        return GoogleFonts.aclonica(
           fontWeight: weight ?? FontWeight.w500,
-          fontSize: fontSize ?? 13.rf(context),
-          color: defaultColor,
+          fontSize: fontSize ?? 20.rf(context),
+          color: AppColor.kTextColor,
         );
       case TextStyleType.errorText:
         return TextStyle(
@@ -118,10 +119,16 @@ class AppTextStyles {
         );
       //* common use
       case TextStyleType.subtitleHeading:
-        return TextStyle(
+        return GoogleFonts.aclonica(
           fontWeight: weight ?? FontWeight.w600,
-          fontSize: fontSize ?? 13.rf(context),
-          color: defaultColor,
+          fontSize: fontSize ?? 30.rf(context),
+          color: AppColor.kThirdColor,
+        );
+      case TextStyleType.dollar:
+        return GoogleFonts.leagueSpartan(
+          fontWeight: weight ?? FontWeight.w500,
+          fontSize: fontSize ?? 12.rf(context),
+          color: AppColor.kThirdColor,
         );
     }
   }
