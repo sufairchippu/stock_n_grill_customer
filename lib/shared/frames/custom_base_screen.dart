@@ -8,9 +8,17 @@ import '../../core/utilities/custom_canvas/ui_utilis.dart';
 import 'custom_frame_to_all.dart';
 
 class CustomBaseScreen extends StatelessWidget {
-  const CustomBaseScreen({super.key, required this.title, required this.child});
+  const CustomBaseScreen({
+    super.key,
+    required this.title,
+    required this.child,
+    this.basecolor,
+    this.onback,
+  });
   final String title;
   final Widget child;
+  final Color? basecolor;
+  final void Function()? onback;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +30,7 @@ class CustomBaseScreen extends StatelessWidget {
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: context.pop,
+                  onTap: onback ?? context.pop,
                   child: Icon(
                     Icons.arrow_back_ios_new_outlined,
                     size: 15.rf(context),
@@ -39,7 +47,7 @@ class CustomBaseScreen extends StatelessWidget {
               ],
             ),
           ),
-          CustomFrameToAll(child: child),
+          CustomFrameToAll(child: child, containerColor: basecolor),
         ],
       ),
     );

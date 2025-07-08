@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 class Validator {
   static String? emailValidation(String? value) {
     if (value == null || value.isEmpty) {
@@ -22,4 +23,16 @@ class Validator {
     }
     return null;
   }
+
+
+
+
+
+
+
+
+
+static String formatCustomDate(DateTime time) {
+  return DateFormat('d MMM, hh:mm a').format(time);
+}
 }

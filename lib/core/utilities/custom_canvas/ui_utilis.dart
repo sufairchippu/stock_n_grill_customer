@@ -19,6 +19,7 @@ class UiUtilis {
       fontWeight: fw ?? baseStyle.fontWeight,
       fontSize: fz ?? baseStyle.fontSize,
       color: color ?? baseStyle.color,
+      overflow: overflow,
     );
     return Text(titile, style: mergedStyle);
   }

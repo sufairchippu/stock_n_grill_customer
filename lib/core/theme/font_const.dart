@@ -46,13 +46,13 @@ class AppTextStyles {
           color: defaultColor,
         );
       case TextStyleType.headline1:
-        return TextStyle(
-          fontWeight: weight ?? FontWeight.w700,
-          fontSize: fontSize ?? 24.rf(context),
-          color: defaultColor,
+        return GoogleFonts.aclonica(
+          fontWeight: weight ?? FontWeight.bold,
+          fontSize: fontSize ?? 20.rf(context),
+          color: AppColor.kTextColor,
         );
       case TextStyleType.headline2:
-        return TextStyle(
+        return GoogleFonts.leagueSpartan(
           fontWeight: weight ?? FontWeight.w600,
           fontSize: fontSize ?? 20.rf(context),
           color: defaultColor,
@@ -112,10 +112,10 @@ class AppTextStyles {
           color: AppColor.kTextColor,
         );
       case TextStyleType.errorText:
-        return TextStyle(
+        return GoogleFonts.leagueSpartan(
           fontWeight: weight ?? FontWeight.w400,
-          fontSize: fontSize ?? 12.rf(context),
-          color: AppColor.kRedColor,
+          fontSize: fontSize ?? 14.rf(context),
+          color: AppColor.kTextColor,
         );
       //* common use
       case TextStyleType.subtitleHeading:

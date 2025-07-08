@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SplashScController extends ChangeNotifier {
-  SplashScController(){
+class SplashOrderCancelController extends ChangeNotifier {
+  SplashOrderCancelController() {
     changeSize();
   }
-  bool isexpanded = false;
+  bool isexpanded = true;
 
   Future<void> changeSize() async {
     isexpanded = !isexpanded;

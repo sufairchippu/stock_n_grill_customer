@@ -9,12 +9,13 @@ class AppRouteNames {
 
   //*drawer
   static const String order = 'order';
-  static const String ordercancel = 'ordercancel';
-  static const String review = 'review';
+  static const String ordercancel = '/navbar/order/ordercancel';
+  static const String cancelsplash = '/navbar/order/ordercancel/cancelsplash';
+
+  static const String review = '/navbar/order/review';
   //
   static const String address = 'address';
   static const String newaddress = 'newaddress';
-
 
   //
   static const String iteam = 'iteam';

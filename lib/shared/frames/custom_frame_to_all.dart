@@ -29,7 +29,6 @@ class CustomFrameToAll extends StatelessWidget {
                 )
                 : null,
         decoration: BoxDecoration(
-          
           color: containerColor ?? AppColor.kThirdColor,
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(30.rf(context)),

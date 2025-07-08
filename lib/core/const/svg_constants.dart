@@ -12,4 +12,5 @@ class SvgConstants {
   static const String star = 'assets/svg/Vector.svg';
   static const String profile2 = 'assets/svg/profile2.svg';
   static const String nodata = 'assets/svg/nodata.svg';
+  static const String cancel = 'assets/svg/cancel.svg';
 }

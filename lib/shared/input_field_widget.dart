@@ -20,8 +20,11 @@ class InputFieldWidget extends StatelessWidget {
     this.borderRadius,
     this.height,
     this.suffix,
+    this.maxline,
+    this.borderColor,
+    this.contentPadding,
   });
-
+  final double? contentPadding;
   final TextEditingController inputController;
   final String? hintText;
   final String? labelText;
@@ -36,6 +39,8 @@ class InputFieldWidget extends StatelessWidget {
   final double? borderRadius;
   final double? height;
   final Widget? suffix;
+  final int? maxline;
+  final Color? borderColor;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -44,29 +49,53 @@ class InputFieldWidget extends StatelessWidget {
       keyboardType: keyboardType,
       maxLength: maxLength,
       validator: validator,
-    
-      decoration: InputDecoration(contentPadding: EdgeInsets.all(1.rf(context)),
+      maxLines: maxline ?? 1,
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(contentPadding ?? 1.rf(context)),
         fillColor: conntainerColor ?? AppColor.kThirdColor,
         prefixIcon: prefixIcon,
         suffix: suffix,
         errorText: errorText,
         hintText: hintText,
         labelText: labelText,
+
         filled: true,
         floatingLabelStyle: TextStyle(color: AppColor.kTextColor),
         labelStyle: GoogleFonts.montserrat(),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColor.kScaffoldColor, width: 10.0),
-          borderRadius: BorderRadius.circular(borderRadius ?? 10),
+          borderSide: BorderSide(
+            color: borderColor ?? AppColor.kScaffoldColor,
+            width: 1.rw(context),
+          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.rf(context)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: borderColor ?? AppColor.kScaffoldColor,
+            width: 1.0.rw(context),
+          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.rf(context)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColor.kGreyColor, width: 2.0),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.rf(context)),
+          borderSide: BorderSide(
+            color: borderColor ?? AppColor.kGreyColor,
+            width: 2.0.rw(context),
+          ),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColor.kBrownColor, width: 2.0),
+          borderSide: BorderSide(
+            color: borderColor ?? AppColor.kBrownColor,
+            width: 2.0.rw(context),
+          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.rf(context)),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColor.kBrownColor, width: 2.5),
+          borderSide: BorderSide(
+            color: borderColor ?? AppColor.kBrownColor,
+            width: 2.5.rw(context),
+          ),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.rf(context)),
         ),
       ),
     );

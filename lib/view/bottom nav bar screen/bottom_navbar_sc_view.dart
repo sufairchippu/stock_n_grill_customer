@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_n_grill_customer/controller/provider/navbar/bottom_navbarsc_controller.dart';
 import 'package:stock_n_grill_customer/core/const/svg_constants.dart';
 import 'package:stock_n_grill_customer/core/mesurment/responsive_size.dart';
+import 'package:stock_n_grill_customer/core/routes/app_route_names.dart';
 import 'package:stock_n_grill_customer/core/theme/font_const.dart';
 import 'package:stock_n_grill_customer/core/utilities/custom_canvas/ui_utilis.dart';
 import 'package:stock_n_grill_customer/core/const/color_constant.dart';
@@ -10,7 +12,7 @@ import 'package:stock_n_grill_customer/model/data/category_model.dart';
 
 import 'package:stock_n_grill_customer/shared/frames/custom_painted/main_frame_app.dart';
 import 'package:stock_n_grill_customer/view/bottom%20nav%20bar%20screen/home/home_screen.dart';
-import 'package:stock_n_grill_customer/view/order/my_order_screen.dart';
+
 
 class BottomNavbarScView extends StatefulWidget {
   const BottomNavbarScView({super.key});
@@ -31,10 +33,7 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
   Widget build(BuildContext context) {
     final List<DrawerItem> items = [
       DrawerItem(SvgConstants.shop, () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => MyOrderScreen()),
-        );
+        context.pushNamed(AppRouteNames.order);
       }, 'My Order'),
       DrawerItem(SvgConstants.shop, () {}, 'My Profile'),
       DrawerItem(SvgConstants.shop, () {}, 'Delivery Address'),
@@ -88,7 +87,7 @@ class _BottomNavbarScViewState extends State<BottomNavbarScView> {
             ),
             endDrawer: Drawer(
               shape: RoundedRectangleBorder(
-                side: BorderSide(width: double.infinity),
+                // side: BorderSide(width: double.infinity),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(60.rf(context)),
                   bottomLeft: Radius.circular(60.rf(context)),
